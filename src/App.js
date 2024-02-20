@@ -32,9 +32,21 @@ function App() {
     },
   ];
 
+  // let tryy = [];
+  // for(let i=0; i<4; i++){
+  //   tryy.push(
+  //   <ExpenseItem
+  //       title={expense[i].title}
+  //       amount={expense[i].amount}
+  //       location={expense[i].LocationOfExpenditure}
+  //       date={expense[i].date}
+  //     ></ExpenseItem>
+  //   )
+  // }
   return (
     <div>
       <h2>Let's get it!</h2>
+      {/* {tryy} */}
       <ExpenseItem
         title={expense[0].title}
         amount={expense[0].amount}
@@ -60,7 +72,7 @@ function App() {
         date={expense[3].date}
       ></ExpenseItem>
     </div>
-  );
+);
 }
 
 export default App;
