@@ -1,8 +1,8 @@
 import React from "react";
 import Expenses from "./components/Expenses/Expenses";
 
-
-function App() {
+//Used Arrow function to return
+const App = () => {
   const expenses = [
     {
       id: "e1",
