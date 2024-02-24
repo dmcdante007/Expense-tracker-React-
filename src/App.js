@@ -50,7 +50,7 @@ const App = () => {
 
   return (
     
-    <div>
+    <div >
       <h2>Let's get it!</h2>
       {/* {tryy} */}
       <Expenses items={expenses}></Expenses>
