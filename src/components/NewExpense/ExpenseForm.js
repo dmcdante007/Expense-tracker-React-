@@ -1,19 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import './ExpenseForm.css';
 
 const ExpenseForm = ()=> {
-    const titleChange = ()=>{
-        console.log('Title Changed!')
+    const [enteredTitle, newenteredTitle] = useState('');
+    const [enteredAmount, newenteredAmount] = useState('');
+    const [enteredDate, newenteredDate] = useState('');
+    // const [userInput, setUserInput] = useState({
+    //     enteredTitle: '',
+    //     enteredAmount: '',
+    //     enteredDate:'',
+    // });
+
+    const titleChange = (event)=>{
+        newenteredTitle(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTitle: event.target.value
+        // })
+        // console.log('Title Changed!')
     };
-    const amountChanged =()=>{
-        console.log('Amount channged!')
+    const amountChanged =(event)=>{
+        newenteredAmount(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredAmount: event.target.value
+        // })
     }
 
-    const dateChanged= ()=>{
-        console.log('Date changed!')
+    const dateChanged= (event)=>{
+        newenteredDate(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredDate: event.target.value
+        // })
     }
 
-    return <form>
+    const submitHandler = (event) =>{
+        event.preventDefault();
+
+        const expenseData = {
+            title : enteredTitle,
+            amount : enteredAmount,
+            date: new Date(enteredDate)
+        };
+
+        console.log(expenseData);
+
+    }
+    return <form onSubmit={submitHandler}>
         <div className="new-expense__controls">
             <div className="new-expense__control">
                 <label>Expense Title</label>
@@ -29,7 +63,7 @@ const ExpenseForm = ()=> {
             </div>
         </div>
         <div className="new-expense__actions">
-            <button type="submit">Add Expesnse</button>
+            <button type="submit" >Add Expesnse</button>
         </div>
     </form>
 }
