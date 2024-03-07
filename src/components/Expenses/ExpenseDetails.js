@@ -1,6 +1,6 @@
 import "./ExpenseItem.css";
 
-function ExportDetails(props) {
+function ExpenseDetails(props) {
   const title = props.title;
   const location = props.location;
   const amount = props.amount;
@@ -14,4 +14,4 @@ function ExportDetails(props) {
   );
 }
 
-export default ExportDetails;
+export default ExpenseDetails;

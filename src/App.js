@@ -46,13 +46,25 @@ const App = () => {
   //     ></ExpenseItem>
   //   )
   // }
-
-
+  const addExpenseHandler = (expense)=>{
+    console.log('In App.js');
+    console.log(expense);
+    const test ={
+    id: expense.id,
+    title: expense.title,
+    LocationOfExpenditure: "Pune, MH",
+    amount: expense.amount,
+    date: expense.date,
+    }
+    // console.log(test)
+  }
+  
+  
 
   return (
     
     <div >
-      <NewExpense>Let's get it!</NewExpense>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       {/* {tryy} */}
       <Expenses items={expenses}></Expenses>
     </div>
