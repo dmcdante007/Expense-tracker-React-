@@ -1,11 +1,12 @@
-import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
 import React, { useState } from "react";
+import ExpensesList from "./ExpensesList";
+
 
 function Expenses(props) {
-  const [filteredYear, setFilteredYear ] = useState("2021");
+  const [filteredYear, setFilteredYear ] = useState("2024");
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
@@ -13,36 +14,6 @@ function Expenses(props) {
   const filteredExpenses = props.items.filter(expense => {
     return  expense.date.getFullYear().toString() === filteredYear;
   })
-
-
-  let contentHandler = <p>No records found.</p>
-  let anotherContent = <p>Only single Expense here. Please add more...</p>
-  if(filteredExpenses.length ===1){
-    contentHandler = filteredExpenses.map((expense) => (
-      <ExpenseItem
-        key = {expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-        location={expense.LocationOfExpenditure}
-      />
-    )) 
-    
-    
-  }
-  else if(filteredExpenses.length >1){
-    contentHandler = filteredExpenses.map((expense) => (
-      <ExpenseItem
-        key = {expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-        location={expense.LocationOfExpenditure}
-      />
-    ))
-    anotherContent =""
-  }
-
   
 
   return (
@@ -52,8 +23,9 @@ function Expenses(props) {
         onChangeFilter={filterChangeHandler}
       >
       </ExpensesFilter>
-      {contentHandler}
-      {anotherContent}
+
+      <ExpensesList item={filteredExpenses}></ExpensesList>
+
       {/* <ExpenseItem
         title={props.items[0].title}
         amount={props.items[0].amount}

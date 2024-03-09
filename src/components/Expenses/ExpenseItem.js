@@ -17,6 +17,7 @@ function ExpenseItem(props) {
     console.log("Delete it");
   };
   return (
+    <li>
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <ExpenseDetails
@@ -27,6 +28,7 @@ function ExpenseItem(props) {
       <button onClick={clickHandler}>Change title</button>
       <button onClick={delItem}>Delete</button>
     </Card>
+    </li>
   );
 }
 
